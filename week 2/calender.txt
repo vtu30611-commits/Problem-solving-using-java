@@ -1,0 +1,32 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
+class Result {
+public static String findDay(int month, int day, int year) {
+Calendar cal = Calendar.getInstance();
+cal.set(year, month - 1, day);
+int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+String[] days = {
+"SUNDAY", "MONDAY", "TUESDAY",
+"WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"
+};
+return days[dayOfWeek - 1];
+}
+public static void main(String[] args) throws Exception {
+Scanner sc = new Scanner(System.in);
+int month = sc.nextInt();
+int day = sc.nextInt();
+int year = sc.nextInt();
+String result = findDay(month, day, year);
+System.out.println(result);
+sc.close();
+}
+}
